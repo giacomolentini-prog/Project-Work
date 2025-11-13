@@ -1,60 +1,99 @@
-          Project Work – Schema di Persistenza Dati per Biglietteria Ferroviaria
+          Project Work – Sistema di Biglietteria Ferroviaria
 
-Questo repository contiene il dump completo del database relazionale progettato per il Project Work del corso di laurea in Informatica per le Aziende Digitali – Università Telematica Pegaso.
+Database relazionale • PostgreSQL • Modellazione ER • Normalizzazione • SQL
 
-L’obiettivo del progetto è la modellazione e implementazione di uno schema di persistenza dati a supporto del processo di bigliettazione ferroviaria digitale, ispirato al dominio reale.
+          Descrizione del progetto
 
-          Contenuti del repository
+Questo repository contiene l’implementazione completa del Project Work relativo alla progettazione di uno schema di persistenza dati per un sistema di biglietteria ferroviaria digitale.
 
-ferrovie_dump.sql → dump PostgreSQL completo
-Include:
+Il lavoro segue i requisiti della traccia UniPegaso e comprende:
 
-definizione dello schema logico (DDL)
+- modellazione concettuale (ER)
 
-tabelle, chiavi primarie ed esterne, vincoli CHECK/UNIQUE
+- traduzione in schema logico-relazionale
 
-dati di esempio (DML)
+- applicazione delle forme normali (1NF → 3NF)
 
-indici e query dimostrative
+- definizione di vincoli, indici e strategie di ottimizzazione
 
-          Ambiente di esecuzione
+- script SQL completi (DDL, DML, query dimostrative)
 
-DBMS: PostgreSQL ≥ 15
+- dump del database PostgreSQL
 
-Schema: ferrovie
+- documentazione tecnica e funzionale
 
-File principale: ferrovie_dump.sql
+Il progetto modella l’intero ciclo di vita del titolo di viaggio:
 
+Ricerca → Prenotazione → Pagamento → Emissione Biglietto → Percorso Multi-Leg → Validazione → Post-vendita (cambi/rimborsi)
 
-Per creare il database:
-
-psql -U postgres -f ferrovie_dump.sql
-
-          Struttura logica
-
-Le principali entità del modello includono:
-
-stazione, linea, tratta, servizio (infrastruttura ed esercizio)
-
-passeggero, prenotazione, pagamento, biglietto
-
-tariffa, classe, prezzo (gestione commerciale)
-
-percorso_biglietto, validazione, cambio, rimborso (processi post-vendita)
-
-
-          Descrizione sintetica
-
-Il modello rispetta i principi di normalizzazione (1NF–3NF), integra vincoli di integrità referenziale e adotta strategie di ottimizzazione (indici B-tree, chiavi composite, partizionamento temporale).
-Le query dimostrative permettono di validare i processi principali: ricerca servizi, storico cliente, verifica biglietto e calcolo tariffe.
+          Struttura del repository
+          
+Project-Work/
+│
+├── ferrovie_dump.sql               ← Dump completo del database PostgreSQL
+├── README.md                       ← Questo file
+│
+├── DDL/
+│   ├── 000_schema.sql              ← Creazione schema + tipi + tabelle
+│   ├── 010_constraints.sql         ← PK, FK, UNIQUE, CHECK, EXCLUSION
+│   └── 020_indexes.sql             ← Indici e ottimizzazioni
+│
+├── DML/
+│   ├── 010_seed_anagrafiche.sql    ← Dati anagrafici (linee, stazioni, tariffe…)
+│   └── 020_seed_scenari.sql        ← Scenari di test (servizi, biglietti, percorsi)
+│
+└── queries/
+    └── queries.sql                 ← 5 query richieste dalla traccia
 
 
-          Risorse utili
+          Requisiti
 
-  Dump completo: ferrovie_dump.sql
+PostgreSQL 15+
 
-  Autore: Giacomo Lentini
+psql oppure pgAdmin 4
 
-  Università: UniPegaso – Informatica per le Aziende Digitali
+Sistema operativo: Windows, macOS o Linux
 
-  Anno accademico: 2024–2025
+          Le query permettono di:
+
+Cercare servizi e prezzi disponibili
+
+Visualizzare lo storico prenotazioni
+
+Verificare un biglietto via QR
+
+Generare report vendite
+
+Contare occupazione “logica” dei servizi
+
+          Dump del database 
+
+Il dump completo è disponibile:
+
+📎 ferrovie_dump.sql
+
+
+          Documentazione tecnica
+
+La documentazione contiene:
+
+- Descrizione situazione-problema
+
+- Obiettivi
+
+- Modellazione concettuale (ER)
+
+- Modellazione logica
+
+- Normalizzazione
+
+- Strategie di indicizzazione
+
+- Query rappresentative
+
+- Appendice SQL
+
+
+          Autore
+
+Giacomo Lentini
