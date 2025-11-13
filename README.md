@@ -34,9 +34,9 @@ Project-Work/
 ├── README.md                       ← Questo file
 │
 ├── DDL/
-│   ├── 000_schema.sql              ← Creazione schema + tipi + tabelle
-│   ├── 010_constraints.sql         ← PK, FK, UNIQUE, CHECK, EXCLUSION
-│   └── 020_indexes.sql             ← Indici e ottimizzazioni
+│   ├── 001_schema.sql                      ← Creazione schema + tipi + tabelle
+│   ├── 003_constraints_indexes.sql         ← PK, FK, UNIQUE, CHECK, EXCLUSION, Indici e ottimizzazioni
+│   └── 002_types_enums.sql                 ← Tipi ENUM separati (migliora chiarezza)
 │
 ├── DML/
 │   ├── 010_seed_anagrafiche.sql    ← Dati anagrafici (linee, stazioni, tariffe…)
